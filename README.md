@@ -21,7 +21,6 @@ android hotfix plugin, update the nuwa plugin, support gradle 1.2.3 to 2.x.
 2.需要下面两个权限
 
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
 -------------------------------------------------------------------------------------------------------------------------------
@@ -31,11 +30,8 @@ android hotfix plugin, update the nuwa plugin, support gradle 1.2.3 to 2.x.
 buildTypes {
 
 	release {
-	
 		minifyEnabled true
-		
 		proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-		
 	}
 	
 }
@@ -47,7 +43,6 @@ buildTypes {
 buildscript {
 
     repositories {maven {url uri('./plugin')}}
-    
     dependencies {classpath 'cn.jiajixin.nuwa:buildsrc:2.0'}
     
 }
@@ -59,31 +54,42 @@ compile 'cn.jiajixin.nuwa:nuwa:1.0.0'
 
 -------------------------------------------------------------------------------------------------------------------------------
 
-5.自定义Application重写下面这个方法
+5.自定义Application重写下面这个方
+
 @Override
 protected void attachBaseContext(Context base) {
+
 	super.attachBaseContext(base);
 	Nuwa.init(this);
 	// /sdcard/patch_1.jar，可以用VERSION_CODE区分版本以免新版APP也加载这些老补丁，具体应用可以让后台做一个检测和下载补丁的接口，下载完成重启Application，而不是简单重启Activity，这个我就不多说了
 	Nuwa.loadPatch(this, Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "patch_" + BuildConfig.VERSION_CODE + ".jar");
 	//其他你的代码方法上面两句后面，比如android.support.multidex.MultiDex.install(this);
+	
 }
 
 -------------------------------------------------------------------------------------------------------------------------------
 
-6.rebuild，同步后，打包release版本apk。会在app/build/outputs中生成nuwa文件夹，备份好，例如放到d:/nuwa。每个release正式发包时一定要备份当前打包的apk对应的源码，和对应的nuwa文件夹。安装这个打包好的apk。
+6.rebuild，同步后，打包release版本apk。会在app/build/outputs中生成nuwa文件夹，备份好，
+例如放到d:/nuwa。
+每个release正式发包时一定要备份当前打包的apk对应的源码，和对应的nuwa文件夹。安装这个打包好的apk。
 
 -------------------------------------------------------------------------------------------------------------------------------
 
 7.先测试单个渠道情况，在上一次出现bug的apk对应的源码基础上，修改任意一个方法，或者新增一个java类，或者删除某个方法。
-打开android studio底部Terminal命令行输入：gradlew nuwaReleasePatch -P NuwaDir=D:/nuwa，首次编译可能要下载一些东西，后面就非常快，其中D:/nuwa就是第6步骤中保存的文件。
+
+打开android studio底部Terminal命令行输入：gradlew nuwaReleasePatch -P NuwaDir=D:/nuwa，首次编译可能要下载一些东西，后面就非常快，
+其中D:/nuwa就是第6步骤中保存的文件。
+
 命令执行完成会出现“BUILD SUCCESSFUL”，然后等待几秒，补丁将生成到app/build/outputs/nuwa文件夹中的patch.jar。
+
 重命名拷贝放到第5步指定的位置，/sdcard/patch_你的版本号.jar。杀掉APP进程重启即可看到你改动后的功能（简单finish不行，需要killProgress）。
 
 -------------------------------------------------------------------------------------------------------------------------------
 
 8.这一点没有就忽略不用看。国内多渠道打包问题。例如你配置了两个渠道
+
 	productFlavors {
+	
         qihoo360//360助手
                 {
                     manifestPlaceholders = [channelID_td_analytics: "360市场"]
@@ -96,7 +102,10 @@ protected void attachBaseContext(Context base) {
                     buildConfigField "String", "channelId_talkingdata", "\"xxxxx\""
                     buildConfigField "String", "channel", "\"tecent\""
                 }
+		
     }
+    
 生成补丁命令差异，中间多了Qihoo360即可：
+
 gradlew nuwaQihoo360ReleasePatch -P NuwaDir=D:/nuwa
 
