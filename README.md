@@ -28,9 +28,9 @@ android hotfix plugin, update the nuwa plugin, support gradle 1.2.3 to 2.x.
 
 2.需要下面两个权限
 
-uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+< uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
-uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+< uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
 
 -------------------------------------------------------------------------------------------------------------------------------
