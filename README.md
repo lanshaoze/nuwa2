@@ -19,26 +19,39 @@ android hotfix plugin, update the nuwa plugin, support gradle 1.2.3 to 2.x.
 -------------------------------------------------------------------------------------------------------------------------------
 
 2.需要下面两个权限
+
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
 -------------------------------------------------------------------------------------------------------------------------------
 
 3.追加proguard-rules.pro中的混淆配置并且开启混淆（如果你的项目中有配置的某一行，则那一行不用重复复制过去）
+
 buildTypes {
+
 	release {
+	
 		minifyEnabled true
+		
 		proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+		
 	}
+	
 }
 
 -------------------------------------------------------------------------------------------------------------------------------
 
 4.app/build.gradle添加插件和依赖
+
 buildscript {
+
     repositories {maven {url uri('./plugin')}}
+    
     dependencies {classpath 'cn.jiajixin.nuwa:buildsrc:2.0'}
+    
 }
+
 apply plugin: 'cn.jiajixin.nuwa'
 
 
