@@ -13,6 +13,7 @@ android hotfix plugin, update the nuwa plugin, support gradle 1.2.3 to 2.x.
 支持新增包、新增类、新增方法、新增变量、修改类、不能修改资源文件、不能修改Application子类，限制只能修改App包名下的java文件，第三方库不能修改。
 
 下面说明操作步骤(Teamlib SDK内部基础library项目默认已集成，具体参见HotfixManager.java类注释。下面介绍单独集成方式)：
+
 1.复制plugin目录到app/plugin
 
 -------------------------------------------------------------------------------------------------------------------------------
