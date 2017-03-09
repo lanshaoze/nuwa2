@@ -2,6 +2,8 @@
 android hotfix plugin, update the nuwa plugin, support gradle 1.2.3 to 2.x.
 
 说明：
+热修复是什么？热修复就是app出现bug之后无需用户更新app就能静默修复bug，注意不是web页面而是可以静默修复原生bug哦。
+
 外面的热修复框架都是公说公有理，婆说婆有理，既然如此，我就都体验一番。
 
 以前使用阿里的andfix集成到我们的项目，听云错误监听工具发现，兼容性80%-90%，报错率达到0.1以上，不可使用。
