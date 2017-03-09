@@ -10,7 +10,7 @@ android hotfix plugin, update the nuwa plugin, support gradle 1.2.3 to 2.x.
 
 美团的Robust据说比较靠谱，但是不开源，想用用不了。
 
-大众点评某工程师开发的一套nuwa，用的是DexClassLoader，这是系统自带的api，兼容性好，稳定性高。
+大众点评某工程师开发的一套nuwa，用的是DexClassLoader，系统自带api，兼容性好，稳定性高，针对加固的APP，如360加固仅支持修复MainActivity加载之后的MainActivity之外的代码。
 
 但是作者的nuwa，仅支持gradle 1.2.3（即项目根目录build.gradle中的classpath 'com.android.tools.build:gradle:1.2.3'）。
 
