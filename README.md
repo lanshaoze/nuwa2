@@ -16,14 +16,14 @@ Nuwa2 is an Android HotFix plugin, it can fix bugs silently without publishing a
 
 1. Copy the plugin folder to your project app/plugin.
 
-2. Add permissions (android 6.0 above need to apply for permission, maybe you can use 'targetSdkVersion 22') 
+2. Append the content in proguard-rules.pro to your project's proguard-rules.pro (don't need repeat existing lines) 
+
+3. Add permissions (android 6.0 above need to apply for permission, maybe you can use 'targetSdkVersion 22') 
 
 	```java
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 	```
-3. Append the content in proguard-rules.pro to your project's proguard-rules.pro (don't need repeat existing lines) 
-
 4. Add these codes to app/build.gradle and sync project.
 
 	```java
