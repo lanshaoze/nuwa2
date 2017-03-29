@@ -55,7 +55,7 @@ Nuwa2 is an Android HotFix plugin, it can fix bugs silently without publishing a
 		super.attachBaseContext(base);
 		try{
 			Nuwa.init(base);
-			//This is a sample path below, apk in diffrent version need diffrent patch file, so you can use BuildConfig.VERSION_CODE
+			//This is a sample path below, apk in different version need different patch file, so you can use BuildConfig.VERSION_CODE
 			String path = "/sdcard/patch_"+BuildConfig.VERSION_CODE+".jar";
 			Nuwa.loadPatch(base, path);
 		}catch (Throwable e){//android 6.0 above need to apply for sdcard permission
