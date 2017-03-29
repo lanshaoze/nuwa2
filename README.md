@@ -75,6 +75,7 @@ If you haven't used 'productFlavors', startup terminal in the bottom of android-
 	```java
 	gradlew nuwaReleasePatch -P NuwaDir=D:/nuwa
 	```
+
 If you have used 'productFlavors' in your build.gradle, such as:
 	```java
 	productFlavors {
