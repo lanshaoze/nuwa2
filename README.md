@@ -78,9 +78,13 @@ If you haven't used 'productFlavors', startup terminal in the bottom of android-
 If you have used 'productFlavors' in your build.gradle, such as:
 	```java
 	productFlavors {
-        channelTecent{//something else}
-        channelHuawei{//something else}
-    }
+		channelTecent{
+			//something else
+		}
+		channelHuawei{
+			//something else
+		}
+    	}
 	```
 Typing in (Command contains your channel name, and this patch is usually universal):
 	```java
