@@ -1,3 +1,4 @@
+
 # What's it
  
 Nuwa2 is an Android HotFix plugin, it can fix bugs silently without publishing apk, it is updated from nuwa.
@@ -71,24 +72,19 @@ It will auto create this folder: app/build/outputs/nuwa, copy it to somewhere su
 You need to backup the nuwa folder and the project source when you generated signed apk, because making patch will use them.
 
 2. Alter some code in bug-source under project's packagename, such as make a toast for testing.
-If you haven't used 'productFlavors', startup terminal in the bottom of android-studio, typing in:
+Startup terminal in the bottom of android-studio, typing in:
 	```java
+	//If you haven't used 'productFlavors', use this below:
 	gradlew nuwaReleasePatch -P NuwaDir=D:/nuwa
-	```
-
-If you have used 'productFlavors' in your build.gradle, such as:
-	```java
+	
+	//If you have used 'productFlavors' in your build.gradle, such as:
+	/*
 	productFlavors {
-		channelTecent{
-			//something else
-		}
-		channelHuawei{
-			//something else
-		}
-    	}
-	```
-Typing in (Command contains your channel name, and this patch is usually universal):
-	```java
+        channelTecent{//something else}
+        channelHuawei{//something else}
+    }
+	*/
+	//Use this below (Command contains your channel name, and this patch is usually universal):
 	gradlew nuwaChannelTecentReleasePatch -P NuwaDir=D:/nuwa
 	```
 It will show "BUILD SUCCESSFUL", then wait some seconds, the patch will be made in "app/build/outputs/nuwa/release/patch.jar".
