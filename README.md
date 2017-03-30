@@ -6,7 +6,7 @@ Nuwa2 is an Android HotFix plugin, it can fix bugs silently without publishing a
 # Advantages
 
 * Support gradle 1.x to 2.x ("nuwa1" don't support gradle 2.x)
-* High stability and compatibility ("andfix" don't compatibility enough)
+* High stability and compatibility ("andfix" isn't compatibility enough)
 * Simpler and easier to use
 * Support add shell, worked after MainActivity ("tinker" don't support add shell)
 * Support add or alter classes and methods under project's packagename
