@@ -71,7 +71,7 @@ Nuwa2 is an Android HotFix plugin, it can fix bugs silently without publishing a
 It will auto create this folder: app/build/outputs/nuwa, copy it to somewhere such as 'D:/nuwa', and install your generated apk.
 You need to backup the nuwa folder and the project source when you generated signed apk, because making patch will use them.
 
-2. Alter some code in bug-source under project's packagename, such as make a toast for testing.
+2. Alter some code in bug-source under project's packagename (not the application class), such as make a toast for testing.
 Startup terminal in the bottom of android-studio, typing in:
 	```java
 	//If you haven't used 'productFlavors', use this below:
